@@ -104,11 +104,11 @@ jobs:
       uses: mvasigh/dispatch-action@main
       with:
         token: ${{ secrets.MY_GITHUB_TOKEN }}
-        repo: dnc-mlops-model-serving
+        repo: aiday-mlops-model-serving
         owner: igoran
         event_type: model-created
         message: |
           {
             "ML_MODEL_VERSION": "${{ env.VERSION_NAME }}",
-            "ML_MODEL_URI": "https://github.com/igoran/dnc-mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip"
+            "ML_MODEL_URI": "https://github.com/igoran/aiday-mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip"
           }
