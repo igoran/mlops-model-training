@@ -1,2 +1,5 @@
-# aiday-mlops-model-training
-AI Day - Model Training
+# ML Operations with modern Tools
+
+## ML.NET Training Project.
+
+### Build and Training Phase (**)
