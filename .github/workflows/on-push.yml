@@ -104,7 +104,7 @@ jobs:
       uses: mvasigh/dispatch-action@main
       with:
         token: ${{ secrets.MY_GITHUB_TOKEN }}
-        repo: aiday-mlops-model-serving
+        repo: mlops-model-serving
         owner: igoran
         event_type: model-created
         message: |
