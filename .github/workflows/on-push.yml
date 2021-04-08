@@ -64,7 +64,7 @@ jobs:
     - run: echo "Creating version ${{ env.VERSION_NAME }}"
     - name: Verify existing release
       run: |
-        statuscode=$(curl -s -o /dev/null -w "%{http_code}" "https://github.com/igoran/dnc-mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip")        
+        statuscode=$(curl -s -o /dev/null -w "%{http_code}" "https://github.com/igoran/mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip")        
         echo "RELEASE_STATUS_CODE=$statuscode" >> $GITHUB_ENV
     - name: Create Release
       if: ${{ env.RELEASE_STATUS_CODE == '404' }}
