@@ -71,7 +71,7 @@ jobs:
       id: create_release
       uses: actions/create-release@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with:
         tag_name: ${{ env.VERSION_NAME }}
         release_name: Release  ${{ env.VERSION_NAME }}
@@ -83,7 +83,7 @@ jobs:
       if: ${{ env.RELEASE_STATUS_CODE == '404' }}
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps           
         asset_path: ./model.zip
@@ -94,7 +94,7 @@ jobs:
       if: ${{ env.RELEASE_STATUS_CODE == '404' }}
       uses: actions/upload-release-asset@v1
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps           
         asset_path: ./master_dataset.txt
@@ -110,5 +110,5 @@ jobs:
         message: |
           {
             "ML_MODEL_VERSION": "${{ env.VERSION_NAME }}",
-            "ML_MODEL_URI": "https://github.com/igoran/aiday-mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip"
+            "ML_MODEL_URI": "https://github.com/igoran/mlops-model-training/releases/download/${{ env.VERSION_NAME }}/${{ env.VERSION_NAME }}.zip"
           }
